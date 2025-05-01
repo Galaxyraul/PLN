@@ -9,12 +9,6 @@ def show_stats(data_path):
     print(data['ideology_multiclass'].value_counts()/data['ideology_multiclass'].shape)
     return data
 
-def add_profession_token(row,authors_col,text_col):
-        author_type = row[authors_col].upper()  
-        profession_token = f"[{author_type}]" 
-        text = row[text_col]
-        return f"{profession_token} {text}"
-
 def join_datasets(path_1,path_2):
     data1 = pd.read_csv(path_1)
     data2 = pd.read_csv(path_2)
@@ -28,5 +22,15 @@ def join_datasets(path_1,path_2):
 #show_stats('../data/augmented_syn_back.csv')
 #show_stats('../data/augmented_para.csv')
 #show_stats('../data/joined_back_para.csv')\
-show_stats('../data/joined_back_para_syn.csv')
+#show_stats('../data/joined_back_para_syn.csv')
 #join_datasets('../data/augmented_back.csv','../data/augmented_para.csv')
+
+def add_profession_token(row):
+        author_type = row['profession'].upper()  
+        profession_token = f"<{author_type}>" 
+        text = row['tweet']
+        return f"{profession_token} {text}"
+path = '../data/augmented_back.csv'
+data = pd.read_csv(path)
+data['Mtweet'] = data.apply(add_profession_token, axis=1)
+data.to_csv(path)

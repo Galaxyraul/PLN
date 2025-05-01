@@ -8,7 +8,7 @@ from scipy.special import softmax
 import numpy as np
 
 # Load BETO tokenizer and model
-MODEL_NAME = "dccuchile/bert-base-spanish-wwm-uncased"
+MODEL_NAME = "dccuchile/bert-base-spanish-wwm-cased"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
 # Function to split long text clusters into subsamples
