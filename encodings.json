@@ -1,0 +1,24 @@
+{
+  "ideology2label": {
+    "left": 0,
+    "right": 1,
+    "moderate_left": 2,
+    "moderate_right": 3
+  },
+  "profession2label": {
+    "celebrity": 0,
+    "journalist": 1,
+    "politician": 2
+  },
+  "label2ideology": {
+    "0": "left",
+    "1": "right",
+    "2": "moderate_left",
+    "3": "moderate_right"
+  },
+  "label2profession": {
+    "0": "celebrity",
+    "1": "journalist",
+    "2": "politician"
+  }
+}
