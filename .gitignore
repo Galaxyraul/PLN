@@ -1,3 +1,7 @@
 *data*/
 *model*/
 *checkpoints*/
+*outs*/
+*.sbatch*
+*tokenized*/
+*tokenizers*/

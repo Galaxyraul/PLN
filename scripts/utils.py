@@ -37,12 +37,15 @@ def load_config(path):
         config = yaml.safe_load(f)
     return config
 
-def load_data(path,label,eval_pct):
+def load_train_data(path,label,eval_pct):
     data = pd.read_csv(path)
     data = data[['ID','profession','ideology_binary','ideology_multiclass','tweet','Mtweet']]
     data = data.rename(columns={label:'label'})
     dataset = Dataset.from_pandas(data)
     return dataset.train_test_split(test_size=eval_pct) 
+
+def load_data(path):
+    return pd.read_csv(path)
 
 def load_tokenized(path):
     return DatasetDict.load_from_disk(path)

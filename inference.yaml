@@ -1,0 +1,14 @@
+models:
+  base: ""
+  bin: ""
+  multi: ""
+  
+  prof: ""
+
+target: "Mtweet"
+
+paths:
+  labels: 
+  data: 
+  tokenizer:
+  tokenizer_no:
