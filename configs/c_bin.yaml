@@ -1,0 +1,51 @@
+model:
+  path: "dccuchile/bert-base-spanish-wwm-cased"
+  name: "c_bin_profile"
+  lr: 2.717e-05
+  batch: 16
+  epochs: 10
+  decay: 4.770e-3
+  GA: 4
+  hd: 0.098 
+  ad: 0.123 
+  eval_steps: 500
+  lrs: "constant"
+  save: "../models"
+  checkpoints: "../checkpoints"
+
+seed: 33
+eval_pct: 0.2
+label: 
+  n_classes: 6
+  task: "profile2idbin" #ideology2label,profession2label,label2ideology,label2profession
+  target: "profile_bin" #profession,ideology_binary,ideology_multiclass,profile_bin,profile_multi
+
+text: "tweet" #tweet,Mtweet
+
+lora:  
+  r: 8
+  alpha: 16
+  dropout: 0.1
+  target: ["query","key","value"]
+  use: False
+
+paths:
+  labels: "../../mappings.pkl"
+  data: "../../data/joined_back_para_syn.csv"
+  logs: "../../logs"
+
+tokenized: False
+
+tokenizer: 
+  extra: False
+  tokens: 
+    - "<POLITICIAN>"
+    - "<JOURNALIST>"
+    - "<CELEBRITY>"
+    - "[POLITICIAN]"
+    - "[HASHTAG]"
+    - "[POLITICAL_PARTY]"
+    - "@user"
+  save: "../tokenizers"
+  path: "../tokenizers"
+  data: "../tokenized/"
